@@ -48,7 +48,7 @@
             </div>
 
             <!-- Login Form -->
-            <div class="auth-form-container active" id="login-form">
+            <div class="auth-form-container active" id="login-form" style="display: block;">
                 <div class="auth-header">
                     <h2>Welcome Back!</h2>
                     <p>Sign in to access your dashboard and club resources</p>
@@ -65,7 +65,7 @@
                         <label for="loginPassword">Password</label>
                         <input type="password" id="loginPassword" name="loginPassword" required placeholder="Enter your password">
                         <i class="fas fa-lock form-icon"></i>
-                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                        <button type="button" class="password-toggle">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -99,7 +99,7 @@
                     </div>
 
                     <div class="auth-footer">
-                        <p>Don't have an account? <a href="#" onclick="switchTab('register')">Join the club</a></p>
+                        <p>Don't have an account? <a href="#" class="switch-to-register">Join the club</a></p>
                     </div>
                 </form>
 
@@ -259,7 +259,7 @@
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" required placeholder="Create a strong password">
                         <i class="fas fa-lock form-icon"></i>
-                        <button type="button" class="password-toggle" onclick="togglePassword('password')">
+                        <button type="button" class="password-toggle">
                             <i class="fas fa-eye"></i>
                         </button>
                         <div class="password-strength" id="passwordStrength">
@@ -272,7 +272,7 @@
                         <label for="confirmPassword">Confirm Password</label>
                         <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
                         <i class="fas fa-lock form-icon"></i>
-                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">
+                        <button type="button" class="password-toggle">
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
@@ -302,7 +302,7 @@
                     </div>
 
                     <div class="auth-footer">
-                        <p>Already have an account? <a href="#" onclick="switchTab('login')">Sign in here</a></p>
+                        <p>Already have an account? <a href="#" class="switch-to-login">Sign in here</a></p>
                     </div>
                 </form>
             </div>
@@ -312,7 +312,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3>Reset Your Password</h3>
-                        <button class="modal-close" onclick="closeForgotPassword()">&times;</button>
+                        <button class="modal-close">&times;</button>
                     </div>
                     <form class="modal-form">
                         <div class="form-group">
