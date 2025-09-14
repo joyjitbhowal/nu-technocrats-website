@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilities & Resources - NU Technocrats Club</title>
+    <meta name="description" content="Access study materials, development tools, project docs, and AI-powered learning resources for all technical departments.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo.png" alt="NU Technocrats" class="logo-img">
+                    <span class="logo-text">NU Technocrats</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li class="nav-item"><a href="index.html#announcements" class="nav-link">Announcements</a></li>
+                    <li class="nav-item"><a href="index.html#events" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="people.html" class="nav-link">People</a></li>
+                    <li class="nav-item"><a href="utilities.html" class="nav-link active">Utilities</a></li>
+                    <li class="nav-item"><a href="students.html" class="nav-link">Students</a></li>
+                    <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+                </ul>
+                <div class="nav-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header utilities-header">
+            <div class="container">
+                <div class="page-header-content">
+                    <h1 class="page-title">Utilities & Resources</h1>
+                    <p class="page-subtitle">Your comprehensive hub for learning materials, tools, and AI-powered assistance</p>
+                    <nav class="breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span>/</span>
+                        <span>Utilities</span>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Assistant Section -->
+        <section class="ai-assistant">
+            <div class="container">
+                <div class="ai-assistant-card">
+                    <div class="ai-header">
+                        <div class="ai-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="ai-info">
+                            <h2>Tech Assistant AI</h2>
+                            <p>Get instant help with coding questions, project ideas, and technical concepts</p>
+                        </div>
+                        <div class="ai-status online">
+                            <i class="fas fa-circle"></i>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-chat-container" id="aiChatContainer">
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message ai-message">
+                                <div class="message-avatar">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="message-content">
+                                    <p>Hi! I'm your Tech Assistant powered by Gemini AI. I can help you with:</p>
+                                    <ul>
+                                        <li>Coding questions and debugging</li>
+                                        <li>Project planning and architecture</li>
+                                        <li>Technology explanations and concepts</li>
+                                        <li>Learning resource recommendations</li>
+                                        <li>Career guidance in tech</li>
+                                    </ul>
+                                    <p>What would you like to learn about today?</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="chat-input-container">
+                            <div class="quick-questions">
+                                <button class="quick-btn" onclick="askQuickQuestion('How do I start learning React?')">
+                                    How do I start learning React?
+                                </button>
+                                <button class="quick-btn" onclick="askQuickQuestion('Best practices for API design')">
+                                    Best practices for API design
+                                </button>
+                                <button class="quick-btn" onclick="askQuickQuestion('Machine learning project ideas')">
+                                    ML project ideas
+                                </button>
+                            </div>
+                            
+                            <div class="chat-input">
+                                <input type="text" id="chatInput" placeholder="Ask anything about technology, programming, or your projects..." maxlength="500">
+                                <button id="sendMessage" onclick="sendMessage()">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <p class="ai-disclaimer">AI responses are generated using Gemini AI and should be verified for accuracy.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resource Categories -->
+        <section class="resource-categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-book-open"></i> Learning Resources</h2>
+                    <p class="section-subtitle">Curated materials organized by department and skill level</p>
+                </div>
+
+                <div class="categories-filter">
+                    <button class="filter-btn active" data-filter="all">All Resources</button>
+                    <button class="filter-btn" data-filter="beginner">Beginner</button>
+                    <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+                    <button class="filter-btn" data-filter="advanced">Advanced</button>
+                </div>
+
+                <div class="categories-grid">
+                    <!-- Web Development Resources -->
+                    <div class="category-card" data-level="beginner intermediate advanced">
+                        <div class="category-header">
+                            <div class="category-icon web-dev">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Web Development</h3>
+                            <span class="resource-count">45 Resources</span>
+                        </div>
+                        <div class="category-content">
+                            <div class="resource-list">
+                                <div class="resource-item">
+                                    <div class="resource-info">
+                                        <h4>React.js Complete Guide</h4>
+                                        <p>Comprehensive tutorial covering hooks, context, and state management</p>
+                                        <div class="resource-meta">
+                                            <span class="level intermediate">Intermediate</span>
+                                            <span class="type">PDF + Videos</span>
+                                            <span class="size">25 MB</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-small btn-primary" onclick="downloadResource('react-guide')">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn-small btn-outline" onclick="previewResource('react-guide')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="resource-item">
+                                    <div class="resource-info">
+                                        <h4>Node.js Backend Development</h4>
+                                        <p>Server-side JavaScript with Express, MongoDB, and authentication</p>
+                                        <div class="resource-meta">
+                                            <span class="level intermediate">Intermediate</span>
+                                            <span class="type">Video Series</span>
+                                            <span class="duration">8 hours</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-small btn-primary" onclick="downloadResource('nodejs-backend')">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn-small btn-outline" onclick="previewResource('nodejs-backend')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="resource-item">
+                                    <div class="resource-info">
+                                        <h4>HTML/CSS Fundamentals</h4>
+                                        <p>Building responsive websites from scratch</p>
+                                        <div class="resource-meta">
+                                            <span class="level beginner">Beginner</span>
+                                            <span class="type">Interactive</span>
+                                            <span class="duration">4 hours</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-small btn-primary" onclick="downloadResource('html-css')">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn-small btn-outline" onclick="previewResource('html-css')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="view-all-btn">View all Web Dev resources →</a>
+                        </div>
+                    </div>
+
+                    <!-- AI/ML Resources -->
+                    <div class="category-card" data-level="intermediate advanced">
+                        <div class="category-header">
+                            <div class="category-icon ai-ml">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>AI & Machine Learning</h3>
+                            <span class="resource-count">38 Resources</span>
+                        </div>
+                        <div class="category-content">
+                            <div class="resource-list">
+                                <div class="resource-item">
+                                    <div class="resource-info">
+                                        <h4>Machine Learning with Python</h4>
+                                        <p>Complete guide to ML algorithms, NumPy, pandas, and scikit-learn</p>
+                                        <div class="resource-meta">
+                                            <span class="level intermediate">Intermediate</span>
+                                            <span class="type">Jupyter Notebooks</span>
+                                            <span class="size">120 MB</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-small btn-primary" onclick="downloadResource('ml-python')">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn-small btn-outline" onclick="previewResource('ml-python')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="resource-item">
+                                    <div class="resource-info">
+                                        <h4>Deep Learning with TensorFlow</h4>
+                                        <p>Neural networks, CNNs, RNNs, and practical projects</p>
+                                        <div class="resource-meta">
+                                            <span class="level advanced">Advanced</span>
+                                            <span class="type">Course + Labs</span>
+                                            <span class="duration">12 weeks</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-small btn-primary" onclick="downloadResource('deep-learning')">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn-small btn-outline" onclick="previewResource('deep-learning')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="resource-item">
+                                    <div class="resource-info">
+                                        <h4>Data Science Toolkit</h4>
+                                        <p>Essential tools and libraries for data analysis and visualization</p>
+                                        <div class="resource-meta">
+                                            <span class="level beginner">Beginner</span>
+                                            <span class="type">Cheat Sheets</span>
+                                            <span class="size">15 MB</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-small btn-primary" onclick="downloadResource('data-science')">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn-small btn-outline" onclick="previewResource('data-science')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="view-all-btn">View all AI/ML resources →</a>
+                        </div>
+                    </div>
+
+                    <!-- Cybersecurity Resources -->
+                    <div class="category-card" data-level="intermediate advanced">
+                        <div class="category-header">
+                            <div class="category-icon security">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Cybersecurity</h3>
+                            <span class="resource-count">32 Resources</span>
+                        </div>
+                        <div class="category-content">
+                            <div class="resource-list">
+                                <div class="resource-item">
+                                    <div class="resource-info">
+                                        <h4>Ethical Hacking Toolkit</h4>
+                                        <p>Penetration testing tools and methodologies</p>
+                                        <div class="resource-meta">
+                                            <span class="level advanced">Advanced</span>
+                                            <span class="type">Tools + Guides</span>
+                                            <span class="size">200 MB</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-small btn-primary" onclick="downloadResource('ethical-hacking')">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn-small btn-outline" onclick="previewResource('ethical-hacking')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="resource-item">
+                                    <div class="resource-info">
+                                        <h4>Network Security Fundamentals</h4>
+                                        <p>Understanding network protocols, firewalls, and intrusion detection</p>
+                                        <div class="resource-meta">
+                                            <span class="level intermediate">Intermediate</span>
+                                            <span class="type">Video Course</span>
+                                            <span class="duration">6 hours</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-small btn-primary" onclick="downloadResource('network-security')">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn-small btn-outline" onclick="previewResource('network-security')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="view-all-btn">View all Security resources →</a>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Development Resources -->
+                    <div class="category-card" data-level="beginner intermediate">
+                        <div class="category-header">
+                            <div class="category-icon mobile">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Mobile Development</h3>
+                            <span class="resource-count">28 Resources</span>
+                        </div>
+                        <div class="category-content">
+                            <div class="resource-list">
+                                <div class="resource-item">
+                                    <div class="resource-info">
+                                        <h4>Flutter Development Guide</h4>
+                                        <p>Cross-platform mobile apps with Dart and Flutter</p>
+                                        <div class="resource-meta">
+                                            <span class="level intermediate">Intermediate</span>
+                                            <span class="type">Project-based</span>
+                                            <span class="duration">10 weeks</span>
+                                        </div>
+                                    </div>
+                                    <div class="resource-actions">
+                                        <button class="btn btn-small btn-primary" onclick="downloadResource('flutter-guide')">
+                                            <i class="fas fa-download"></i>
+                                        </button>
+                                        <button class="btn btn-small btn-outline" onclick="previewResource('flutter-guide')">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="view-all-btn">View all Mobile resources →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Development Tools -->
+        <section class="dev-tools">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-tools"></i> Development Tools</h2>
+                    <p class="section-subtitle">Essential tools and utilities for every developer</p>
+                </div>
+
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <h3>Git & Version Control</h3>
+                        <p>Master Git workflows, branching strategies, and collaboration</p>
+                        <div class="tool-features">
+                            <span class="feature">Interactive Git Tutorial</span>
+                            <span class="feature">Cheat Sheets</span>
+                            <span class="feature">Best Practices Guide</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openTool('git-tutorial')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch Tool
+                        </button>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Code Formatter</h3>
+                        <p>Format and beautify code in multiple programming languages</p>
+                        <div class="tool-features">
+                            <span class="feature">Multi-language Support</span>
+                            <span class="feature">Custom Style Rules</span>
+                            <span class="feature">Syntax Validation</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openTool('code-formatter')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch Tool
+                        </button>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Color Palette Generator</h3>
+                        <p>Generate beautiful color schemes for your web projects</p>
+                        <div class="tool-features">
+                            <span class="feature">AI-Powered Palettes</span>
+                            <span class="feature">Accessibility Check</span>
+                            <span class="feature">Export Formats</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openTool('color-generator')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch Tool
+                        </button>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>SQL Query Builder</h3>
+                        <p>Visual interface for building complex SQL queries</p>
+                        <div class="tool-features">
+                            <span class="feature">Drag & Drop Interface</span>
+                            <span class="feature">Multiple DB Support</span>
+                            <span class="feature">Query Optimization</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openTool('sql-builder')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch Tool
+                        </button>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                        <h3>Debug Helper</h3>
+                        <p>AI-powered debugging assistant for common programming issues</p>
+                        <div class="tool-features">
+                            <span class="feature">Error Analysis</span>
+                            <span class="feature">Solution Suggestions</span>
+                            <span class="feature">Code Optimization</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openTool('debug-helper')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch Tool
+                        </button>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Performance Monitor</h3>
+                        <p>Analyze and optimize website and application performance</p>
+                        <div class="tool-features">
+                            <span class="feature">Speed Analysis</span>
+                            <span class="feature">SEO Audit</span>
+                            <span class="feature">Mobile Testing</span>
+                        </div>
+                        <button class="btn btn-primary" onclick="openTool('performance-monitor')">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch Tool
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Templates -->
+        <section class="project-templates">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-project-diagram"></i> Project Templates</h2>
+                    <p class="section-subtitle">Kickstart your projects with our curated templates</p>
+                </div>
+
+                <div class="templates-grid">
+                    <div class="template-card">
+                        <div class="template-preview">
+                            <img src="images/templates/react-dashboard.jpg" alt="React Dashboard Template">
+                            <div class="template-overlay">
+                                <button class="preview-btn" onclick="previewTemplate('react-dashboard')">
+                                    <i class="fas fa-eye"></i>
+                                    Preview
+                                </button>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h3>React Admin Dashboard</h3>
+                            <p>Complete admin panel with authentication, charts, and CRUD operations</p>
+                            <div class="template-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Material-UI</span>
+                                <span class="tech-tag">Charts.js</span>
+                            </div>
+                            <div class="template-stats">
+                                <span><i class="fas fa-download"></i> 245 downloads</span>
+                                <span><i class="fas fa-star"></i> 4.8/5</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="downloadTemplate('react-dashboard')">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-preview">
+                            <img src="images/templates/ml-starter.jpg" alt="ML Starter Template">
+                            <div class="template-overlay">
+                                <button class="preview-btn" onclick="previewTemplate('ml-starter')">
+                                    <i class="fas fa-eye"></i>
+                                    Preview
+                                </button>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h3>Machine Learning Starter Kit</h3>
+                            <p>Pre-configured environment with common ML libraries and sample datasets</p>
+                            <div class="template-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Jupyter</span>
+                                <span class="tech-tag">scikit-learn</span>
+                            </div>
+                            <div class="template-stats">
+                                <span><i class="fas fa-download"></i> 189 downloads</span>
+                                <span><i class="fas fa-star"></i> 4.6/5</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="downloadTemplate('ml-starter')">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-preview">
+                            <img src="images/templates/mobile-app.jpg" alt="Flutter App Template">
+                            <div class="template-overlay">
+                                <button class="preview-btn" onclick="previewTemplate('flutter-app')">
+                                    <i class="fas fa-eye"></i>
+                                    Preview
+                                </button>
+                            </div>
+                        </div>
+                        <div class="template-info">
+                            <h3>Flutter E-commerce App</h3>
+                            <p>Complete mobile shopping app with payment integration</p>
+                            <div class="template-tech">
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">Dart</span>
+                                <span class="tech-tag">Firebase</span>
+                            </div>
+                            <div class="template-stats">
+                                <span><i class="fas fa-download"></i> 167 downloads</span>
+                                <span><i class="fas fa-star"></i> 4.7/5</span>
+                            </div>
+                            <button class="btn btn-primary" onclick="downloadTemplate('flutter-app')">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resource Upload (Admin/Contributor) -->
+        <section class="resource-upload" id="resourceUpload" style="display: none;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-cloud-upload-alt"></i> Contribute Resources</h2>
+                    <p class="section-subtitle">Help grow our resource library by sharing your knowledge</p>
+                </div>
+
+                <div class="upload-form-card">
+                    <form class="resource-upload-form" id="resourceUploadForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resourceTitle">Resource Title</label>
+                                <input type="text" id="resourceTitle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="resourceCategory">Category</label>
+                                <select id="resourceCategory" required>
+                                    <option value="">Select category</option>
+                                    <option value="web-development">Web Development</option>
+                                    <option value="ai-ml">AI & Machine Learning</option>
+                                    <option value="cybersecurity">Cybersecurity</option>
+                                    <option value="mobile-development">Mobile Development</option>
+                                    <option value="iot-robotics">IoT & Robotics</option>
+                                    <option value="ui-ux">UI/UX Design</option>
+                                    <option value="tools">Development Tools</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="resourceDescription">Description</label>
+                            <textarea id="resourceDescription" rows="3" required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="resourceLevel">Skill Level</label>
+                                <select id="resourceLevel" required>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="resourceType">Type</label>
+                                <select id="resourceType" required>
+                                    <option value="pdf">PDF Document</option>
+                                    <option value="video">Video Tutorial</option>
+                                    <option value="code">Code Repository</option>
+                                    <option value="interactive">Interactive Tutorial</option>
+                                    <option value="tool">Online Tool</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="resourceFile">Upload File</label>
+                            <div class="file-upload-area" id="fileUploadArea">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Drag & drop files here or click to browse</p>
+                                <input type="file" id="resourceFile" multiple accept=".pdf,.mp4,.zip,.ppt,.docx">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-upload"></i>
+                                Upload Resource
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="hideUploadForm()">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <div class="footer-logo">
+                        <img src="images/logo-white.png" alt="NU Technocrats">
+                        <h3>NU Technocrats Club</h3>
+                    </div>
+                    <p>Innovate • Collaborate • Lead</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="departments.html">Departments</a></li>
+                        <li><a href="index.html#events">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="people.html">People</a></li>
+                        <li><a href="students.html">Students</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section participate">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="login.html">Join the Club</a></li>
+                        <li><a href="index.html#events">Attend Events</a></li>
+                        <li><a href="departments.html">Choose Department</a></li>
+                        <li><a href="people.html">Meet Mentors</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get the latest news about events, workshops, and opportunities.</p>
+                    <form class="newsletter-form">
+                        <div class="newsletter-input">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 NU Technocrats Club. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Code of Conduct</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/utilities.js"></script>
+    <script src="js/gemini-ai.js"></script>
+</body>
+</html>

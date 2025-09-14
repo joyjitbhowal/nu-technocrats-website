@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - NU Technocrats Club</title>
+    <meta name="description" content="Browse our event photos and videos. See highlights from workshops, hackathons, tech talks, and club activities.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo.png" alt="NU Technocrats" class="logo-img">
+                    <span class="logo-text">NU Technocrats</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li class="nav-item"><a href="index.html#announcements" class="nav-link">Announcements</a></li>
+                    <li class="nav-item"><a href="index.html#events" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                    <li class="nav-item"><a href="people.html" class="nav-link">People</a></li>
+                    <li class="nav-item"><a href="utilities.html" class="nav-link">Utilities</a></li>
+                    <li class="nav-item"><a href="students.html" class="nav-link">Students</a></li>
+                    <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+                </ul>
+                <div class="nav-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header gallery-header">
+            <div class="container">
+                <div class="page-header-content">
+                    <h1 class="page-title">Club Gallery</h1>
+                    <p class="page-subtitle">Capturing moments of innovation, collaboration, and learning</p>
+                    <nav class="breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span>/</span>
+                        <span>Gallery</span>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Controls -->
+        <section class="gallery-controls">
+            <div class="container">
+                <div class="controls-wrapper">
+                    <!-- Admin Upload Button (role-based visibility) -->
+                    <div class="admin-controls" id="adminControls" style="display: none;">
+                        <button class="btn btn-primary" onclick="openUploadModal()">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            Upload Media
+                        </button>
+                        <button class="btn btn-secondary" onclick="toggleBulkActions()">
+                            <i class="fas fa-tasks"></i>
+                            Manage Gallery
+                        </button>
+                    </div>
+
+                    <!-- Filters -->
+                    <div class="gallery-filters">
+                        <button class="filter-btn active" data-filter="all">All Media</button>
+                        <button class="filter-btn" data-filter="photos">Photos</button>
+                        <button class="filter-btn" data-filter="videos">Videos</button>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div class="category-filters">
+                        <select class="category-select" id="categoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="workshops">Workshops</option>
+                            <option value="hackathons">Hackathons</option>
+                            <option value="tech-talks">Tech Talks</option>
+                            <option value="networking">Networking Events</option>
+                            <option value="competitions">Competitions</option>
+                            <option value="department-activities">Department Activities</option>
+                            <option value="social">Social Events</option>
+                        </select>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="gallery-search">
+                        <input type="text" placeholder="Search gallery..." id="gallerySearch">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Media -->
+        <section class="featured-media">
+            <div class="container">
+                <h2 class="section-title">Featured Highlights</h2>
+                <div class="featured-carousel">
+                    <div class="featured-item active">
+                        <div class="featured-content">
+                            <div class="featured-image">
+                                <img src="images/gallery/featured/hackathon-2024.jpg" alt="Annual Hackathon 2024">
+                                <div class="featured-overlay">
+                                    <button class="play-btn" onclick="playFeaturedVideo('hackathon-2024')">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="featured-info">
+                                <h3>Annual Hackathon 2024</h3>
+                                <p>48 hours of coding, innovation, and collaboration. Watch highlights from our biggest event of the year.</p>
+                                <div class="featured-stats">
+                                    <span><i class="fas fa-users"></i> 80 Participants</span>
+                                    <span><i class="fas fa-trophy"></i> 15 Projects</span>
+                                    <span><i class="fas fa-calendar"></i> Oct 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="gallery-grid-section">
+            <div class="container">
+                <div class="gallery-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalPhotos">245</span>
+                        <span class="stat-label">Photos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalVideos">32</span>
+                        <span class="stat-label">Videos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalEvents">28</span>
+                        <span class="stat-label">Events Covered</span>
+                    </div>
+                </div>
+
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Photos -->
+                    <div class="gallery-item photo" data-category="workshops" data-date="2024-09-10">
+                        <div class="item-container">
+                            <img src="images/gallery/workshops/web-dev-workshop-1.jpg" alt="Web Development Workshop">
+                            <div class="item-overlay">
+                                <div class="item-info">
+                                    <h4>Web Development Workshop</h4>
+                                    <p>React.js Fundamentals Session</p>
+                                    <span class="item-date">Sep 10, 2024</span>
+                                </div>
+                                <div class="item-actions">
+                                    <a href="images/gallery/workshops/web-dev-workshop-1.jpg" data-lightbox="gallery" class="action-btn">
+                                        <i class="fas fa-expand"></i>
+                                    </a>
+                                    <button class="action-btn admin-only" onclick="editMedia('photo-1')" style="display: none;">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn share-btn" onclick="shareMedia('photo-1')">
+                                        <i class="fas fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item video" data-category="hackathons" data-date="2024-10-22">
+                        <div class="item-container">
+                            <div class="video-thumbnail">
+                                <img src="images/gallery/hackathons/hackathon-thumbnail.jpg" alt="Hackathon 2024 Highlights">
+                                <div class="video-duration">03:45</div>
+                                <div class="play-overlay">
+                                    <button class="play-btn" onclick="playVideo('hackathon-highlights')">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="item-overlay">
+                                <div class="item-info">
+                                    <h4>Hackathon 2024 Highlights</h4>
+                                    <p>Best moments from our annual hackathon</p>
+                                    <span class="item-date">Oct 22, 2024</span>
+                                </div>
+                                <div class="item-actions">
+                                    <button class="action-btn" onclick="playVideo('hackathon-highlights')">
+                                        <i class="fas fa-play"></i>
+                                    </button>
+                                    <button class="action-btn admin-only" onclick="editMedia('video-1')" style="display: none;">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn share-btn" onclick="shareMedia('video-1')">
+                                        <i class="fas fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo" data-category="tech-talks" data-date="2024-09-25">
+                        <div class="item-container">
+                            <img src="images/gallery/tech-talks/ai-healthcare-talk.jpg" alt="AI in Healthcare Tech Talk">
+                            <div class="item-overlay">
+                                <div class="item-info">
+                                    <h4>AI in Healthcare Tech Talk</h4>
+                                    <p>Dr. Sarah Johnson's seminar</p>
+                                    <span class="item-date">Sep 25, 2024</span>
+                                </div>
+                                <div class="item-actions">
+                                    <a href="images/gallery/tech-talks/ai-healthcare-talk.jpg" data-lightbox="gallery" class="action-btn">
+                                        <i class="fas fa-expand"></i>
+                                    </a>
+                                    <button class="action-btn admin-only" onclick="editMedia('photo-2')" style="display: none;">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn share-btn" onclick="shareMedia('photo-2')">
+                                        <i class="fas fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo" data-category="department-activities" data-date="2024-09-15">
+                        <div class="item-container">
+                            <img src="images/gallery/departments/robotics-project.jpg" alt="Robotics Department Project">
+                            <div class="item-overlay">
+                                <div class="item-info">
+                                    <h4>Robotics Department Project</h4>
+                                    <p>Autonomous rover demonstration</p>
+                                    <span class="item-date">Sep 15, 2024</span>
+                                </div>
+                                <div class="item-actions">
+                                    <a href="images/gallery/departments/robotics-project.jpg" data-lightbox="gallery" class="action-btn">
+                                        <i class="fas fa-expand"></i>
+                                    </a>
+                                    <button class="action-btn admin-only" onclick="editMedia('photo-3')" style="display: none;">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn share-btn" onclick="shareMedia('photo-3')">
+                                        <i class="fas fa-share-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More gallery items would be loaded here -->
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-container">
+                    <button class="btn btn-outline" id="loadMoreBtn">
+                        <i class="fas fa-images"></i>
+                        Load More Media
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Modal (Admin Only) -->
+        <div class="modal" id="uploadModal">
+            <div class="modal-content upload-modal">
+                <div class="modal-header">
+                    <h3>Upload Media</h3>
+                    <button class="modal-close" onclick="closeUploadModal()">&times;</button>
+                </div>
+                <form class="upload-form" id="uploadForm">
+                    <div class="upload-zone" id="uploadZone">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <p>Drag & drop files here or click to browse</p>
+                        <p class="upload-info">Supports: JPG, PNG, MP4, MOV (Max: 50MB)</p>
+                        <input type="file" id="fileInput" multiple accept="image/*,video/*" hidden>
+                    </div>
+                    
+                    <div class="upload-details" id="uploadDetails" style="display: none;">
+                        <div class="form-group">
+                            <label for="mediaTitle">Title</label>
+                            <input type="text" id="mediaTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mediaDescription">Description</label>
+                            <textarea id="mediaDescription" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="mediaCategory">Category</label>
+                            <select id="mediaCategory" required>
+                                <option value="workshops">Workshops</option>
+                                <option value="hackathons">Hackathons</option>
+                                <option value="tech-talks">Tech Talks</option>
+                                <option value="networking">Networking Events</option>
+                                <option value="competitions">Competitions</option>
+                                <option value="department-activities">Department Activities</option>
+                                <option value="social">Social Events</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Event Date</label>
+                            <input type="date" id="eventDate" required>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="featuredMedia">
+                            <label for="featuredMedia">Mark as featured</label>
+                        </div>
+                    </div>
+
+                    <div class="upload-actions">
+                        <button type="button" class="btn btn-secondary" onclick="closeUploadModal()">Cancel</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-upload"></i>
+                            Upload Media
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Video Player Modal -->
+        <div class="modal" id="videoModal">
+            <div class="modal-content video-modal">
+                <div class="modal-header">
+                    <h3 id="videoTitle">Video Player</h3>
+                    <button class="modal-close" onclick="closeVideoModal()">&times;</button>
+                </div>
+                <div class="video-container">
+                    <video id="videoPlayer" controls>
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-info">
+                    <p id="videoDescription"></p>
+                    <div class="video-actions">
+                        <button class="btn btn-outline" onclick="downloadVideo()">
+                            <i class="fas fa-download"></i>
+                            Download
+                        </button>
+                        <button class="btn btn-outline" onclick="shareVideo()">
+                            <i class="fas fa-share-alt"></i>
+                            Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <div class="footer-logo">
+                        <img src="images/logo-white.png" alt="NU Technocrats">
+                        <h3>NU Technocrats Club</h3>
+                    </div>
+                    <p>Innovate • Collaborate • Lead</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="departments.html">Departments</a></li>
+                        <li><a href="index.html#events">Events</a></li>
+                        <li><a href="people.html">People</a></li>
+                        <li><a href="utilities.html">Resources</a></li>
+                        <li><a href="students.html">Students</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section participate">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="login.html">Join the Club</a></li>
+                        <li><a href="index.html#events">Attend Events</a></li>
+                        <li><a href="departments.html">Choose Department</a></li>
+                        <li><a href="people.html">Meet Mentors</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get the latest news about events, workshops, and opportunities.</p>
+                    <form class="newsletter-form">
+                        <div class="newsletter-input">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 NU Technocrats Club. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Code of Conduct</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+</html>

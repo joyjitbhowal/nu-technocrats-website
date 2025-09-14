@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students & Members - NU Technocrats Club</title>
+    <meta name="description" content="Connect with fellow students and members of the NU Technocrats Club. Search by department, year, and expertise.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo.png" alt="NU Technocrats" class="logo-img">
+                    <span class="logo-text">NU Technocrats</span>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="departments.html" class="nav-link">Departments</a></li>
+                    <li class="nav-item"><a href="index.html#announcements" class="nav-link">Announcements</a></li>
+                    <li class="nav-item"><a href="index.html#events" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="people.html" class="nav-link">People</a></li>
+                    <li class="nav-item"><a href="utilities.html" class="nav-link">Utilities</a></li>
+                    <li class="nav-item"><a href="students.html" class="nav-link active">Students</a></li>
+                    <li class="nav-item"><a href="login.html" class="nav-link">Login</a></li>
+                </ul>
+                <div class="nav-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Page Header -->
+        <section class="page-header students-header">
+            <div class="container">
+                <div class="page-header-content">
+                    <h1 class="page-title">Students & Members</h1>
+                    <p class="page-subtitle">Connect, collaborate, and learn with 110+ passionate tech enthusiasts</p>
+                    <nav class="breadcrumb">
+                        <a href="index.html">Home</a>
+                        <span>/</span>
+                        <span>Students</span>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- Member Statistics -->
+        <section class="member-stats">
+            <div class="container">
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalMembers">110+</h3>
+                            <p>Total Members</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="activeMembers">85</h3>
+                            <p>Active Members</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="departmentCount">7</h3>
+                            <p>Departments</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="ongoingProjects">12</h3>
+                            <p>Ongoing Projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search and Filter Controls -->
+        <section class="search-controls">
+            <div class="container">
+                <div class="search-header">
+                    <h2 class="section-title"><i class="fas fa-search"></i> Find Members</h2>
+                    <p class="section-subtitle">Search and connect with members by department, year, skills, or interests</p>
+                </div>
+
+                <div class="search-form">
+                    <div class="search-input-container">
+                        <div class="search-input-group">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="memberSearch" placeholder="Search by name, skills, or interests..." class="search-input">
+                            <button class="search-clear" id="clearSearch" style="display: none;">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="filter-controls">
+                        <div class="filter-group">
+                            <label for="departmentFilter">Department</label>
+                            <select id="departmentFilter" class="filter-select">
+                                <option value="">All Departments</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="ai-ml">AI & Machine Learning</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                                <option value="mobile-development">Mobile Development</option>
+                                <option value="iot-robotics">IoT & Robotics</option>
+                                <option value="ui-ux">UI/UX Design</option>
+                                <option value="content-creation">Content Creation</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="yearFilter">Academic Year</label>
+                            <select id="yearFilter" class="filter-select">
+                                <option value="">All Years</option>
+                                <option value="1st-year">1st Year</option>
+                                <option value="2nd-year">2nd Year</option>
+                                <option value="3rd-year">3rd Year</option>
+                                <option value="4th-year">4th Year</option>
+                                <option value="alumni">Alumni</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-group">
+                            <label for="roleFilter">Role</label>
+                            <select id="roleFilter" class="filter-select">
+                                <option value="">All Roles</option>
+                                <option value="president">President</option>
+                                <option value="vice-president">Vice President</option>
+                                <option value="secretary">Secretary</option>
+                                <option value="treasurer">Treasurer</option>
+                                <option value="department-head">Department Head</option>
+                                <option value="team-lead">Team Lead</option>
+                                <option value="member">Member</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-actions">
+                            <button class="btn btn-primary" id="applyFilters">
+                                <i class="fas fa-filter"></i>
+                                Apply Filters
+                            </button>
+                            <button class="btn btn-secondary" id="resetFilters">
+                                <i class="fas fa-undo"></i>
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="search-results-info">
+                    <div class="results-count">
+                        <span id="resultsCount">Showing 110 members</span>
+                    </div>
+                    <div class="view-options">
+                        <button class="view-toggle active" data-view="grid" title="Grid View">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button class="view-toggle" data-view="list" title="List View">
+                            <i class="fas fa-list"></i>
+                        </button>
+                        <button class="view-toggle" data-view="table" title="Table View">
+                            <i class="fas fa-table"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Members Directory -->
+        <section class="members-directory">
+            <div class="container">
+                <!-- Loading Indicator -->
+                <div class="loading-indicator" id="loadingIndicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Loading members...</p>
+                </div>
+
+                <!-- Members Grid View -->
+                <div class="members-grid" id="membersGrid">
+                    <!-- Executive Committee -->
+                    <div class="member-card featured executive" data-department="leadership" data-year="4th-year" data-role="president">
+                        <div class="member-photo">
+                            <img src="images/members/president.jpg" alt="Alex Johnson" loading="lazy">
+                            <div class="member-status online"></div>
+                            <div class="member-role-badge president">President</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Alex Johnson</h3>
+                            <p class="member-title">Club President</p>
+                            <div class="member-department">
+                                <span class="dept-tag web-development">Web Development</span>
+                            </div>
+                            <div class="member-skills">
+                                <span class="skill-tag">Full Stack</span>
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Leadership</span>
+                            </div>
+                            <div class="member-stats">
+                                <div class="stat">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>8 Projects</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>4th Year</span>
+                                </div>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:alex@nutechnocrats.com" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/alexjohnson" class="contact-btn" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/alexjohnson" class="contact-btn" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="contact-btn" onclick="viewProfile('alex-johnson')">
+                                    <i class="fas fa-user"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="member-card featured executive" data-department="ai-ml" data-year="4th-year" data-role="vice-president">
+                        <div class="member-photo">
+                            <img src="images/members/vice-president.jpg" alt="Sarah Chen" loading="lazy">
+                            <div class="member-status online"></div>
+                            <div class="member-role-badge vice-president">Vice President</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Sarah Chen</h3>
+                            <p class="member-title">Vice President</p>
+                            <div class="member-department">
+                                <span class="dept-tag ai-ml">AI & Machine Learning</span>
+                            </div>
+                            <div class="member-skills">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">TensorFlow</span>
+                                <span class="skill-tag">Data Science</span>
+                            </div>
+                            <div class="member-stats">
+                                <div class="stat">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>6 Projects</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>4th Year</span>
+                                </div>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:sarah@nutechnocrats.com" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/sarahchen" class="contact-btn" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/sarahchen" class="contact-btn" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="contact-btn" onclick="viewProfile('sarah-chen')">
+                                    <i class="fas fa-user"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Department Heads -->
+                    <div class="member-card department-head" data-department="web-development" data-year="3rd-year" data-role="department-head">
+                        <div class="member-photo">
+                            <img src="images/members/web-head.jpg" alt="Mike Rodriguez" loading="lazy">
+                            <div class="member-status away"></div>
+                            <div class="member-role-badge department-head">Dept Head</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Mike Rodriguez</h3>
+                            <p class="member-title">Web Development Head</p>
+                            <div class="member-department">
+                                <span class="dept-tag web-development">Web Development</span>
+                            </div>
+                            <div class="member-skills">
+                                <span class="skill-tag">React</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">MongoDB</span>
+                            </div>
+                            <div class="member-stats">
+                                <div class="stat">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>5 Projects</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>3rd Year</span>
+                                </div>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:mike@nutechnocrats.com" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/mikerodriguez" class="contact-btn" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/mikerodriguez" class="contact-btn" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="contact-btn" onclick="viewProfile('mike-rodriguez')">
+                                    <i class="fas fa-user"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="member-card department-head" data-department="cybersecurity" data-year="3rd-year" data-role="department-head">
+                        <div class="member-photo">
+                            <img src="images/members/security-head.jpg" alt="Emily Davis" loading="lazy">
+                            <div class="member-status online"></div>
+                            <div class="member-role-badge department-head">Dept Head</div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Emily Davis</h3>
+                            <p class="member-title">Cybersecurity Head</p>
+                            <div class="member-department">
+                                <span class="dept-tag cybersecurity">Cybersecurity</span>
+                            </div>
+                            <div class="member-skills">
+                                <span class="skill-tag">Ethical Hacking</span>
+                                <span class="skill-tag">Network Security</span>
+                                <span class="skill-tag">Penetration Testing</span>
+                            </div>
+                            <div class="member-stats">
+                                <div class="stat">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>4 Projects</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>3rd Year</span>
+                                </div>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:emily@nutechnocrats.com" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/emilydavis" class="contact-btn" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/emilydavis" class="contact-btn" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="contact-btn" onclick="viewProfile('emily-davis')">
+                                    <i class="fas fa-user"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regular Members -->
+                    <div class="member-card" data-department="mobile-development" data-year="2nd-year" data-role="team-lead">
+                        <div class="member-photo">
+                            <img src="images/members/member1.jpg" alt="David Kim" loading="lazy">
+                            <div class="member-status online"></div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">David Kim</h3>
+                            <p class="member-title">Mobile Dev Team Lead</p>
+                            <div class="member-department">
+                                <span class="dept-tag mobile-development">Mobile Development</span>
+                            </div>
+                            <div class="member-skills">
+                                <span class="skill-tag">Flutter</span>
+                                <span class="skill-tag">React Native</span>
+                                <span class="skill-tag">Firebase</span>
+                            </div>
+                            <div class="member-stats">
+                                <div class="stat">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>3 Projects</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2nd Year</span>
+                                </div>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:david@nutechnocrats.com" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/davidkim" class="contact-btn" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/davidkim" class="contact-btn" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="contact-btn" onclick="viewProfile('david-kim')">
+                                    <i class="fas fa-user"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="member-card" data-department="ui-ux" data-year="2nd-year" data-role="member">
+                        <div class="member-photo">
+                            <img src="images/members/member2.jpg" alt="Lisa Wang" loading="lazy">
+                            <div class="member-status away"></div>
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Lisa Wang</h3>
+                            <p class="member-title">UI/UX Designer</p>
+                            <div class="member-department">
+                                <span class="dept-tag ui-ux">UI/UX Design</span>
+                            </div>
+                            <div class="member-skills">
+                                <span class="skill-tag">Figma</span>
+                                <span class="skill-tag">Adobe XD</span>
+                                <span class="skill-tag">Prototyping</span>
+                            </div>
+                            <div class="member-stats">
+                                <div class="stat">
+                                    <i class="fas fa-project-diagram"></i>
+                                    <span>2 Projects</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>2nd Year</span>
+                                </div>
+                            </div>
+                            <div class="member-contact">
+                                <a href="mailto:lisa@nutechnocrats.com" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/lisawang" class="contact-btn" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/lisawang" class="contact-btn" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <button class="contact-btn" onclick="viewProfile('lisa-wang')">
+                                    <i class="fas fa-user"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More members will be loaded dynamically -->
+                </div>
+
+                <!-- Load More Button -->
+                <div class="load-more-section">
+                    <button class="btn btn-outline load-more-btn" id="loadMoreBtn">
+                        <i class="fas fa-plus"></i>
+                        Load More Members
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Member Profile Modal -->
+        <div class="member-modal" id="memberModal" style="display: none;">
+            <div class="modal-overlay" onclick="closeMemberModal()"></div>
+            <div class="modal-content member-profile">
+                <div class="modal-header">
+                    <button class="modal-close" onclick="closeMemberModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="memberProfileContent">
+                    <!-- Profile content will be loaded dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Controls (Hidden by default) -->
+        <section class="admin-controls" id="adminControls" style="display: none;">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-cog"></i> Member Management</h2>
+                    <p class="section-subtitle">Administrative controls for managing members</p>
+                </div>
+
+                <div class="admin-actions">
+                    <button class="btn btn-primary" onclick="addNewMember()">
+                        <i class="fas fa-user-plus"></i>
+                        Add New Member
+                    </button>
+                    <button class="btn btn-secondary" onclick="exportMembers()">
+                        <i class="fas fa-download"></i>
+                        Export Directory
+                    </button>
+                    <button class="btn btn-secondary" onclick="importMembers()">
+                        <i class="fas fa-upload"></i>
+                        Import Members
+                    </button>
+                    <button class="btn btn-outline" onclick="manageDepartments()">
+                        <i class="fas fa-sitemap"></i>
+                        Manage Departments
+                    </button>
+                </div>
+
+                <div class="bulk-actions">
+                    <h3>Bulk Actions</h3>
+                    <div class="bulk-controls">
+                        <button class="btn btn-sm btn-secondary" onclick="selectAllMembers()">
+                            <i class="fas fa-check-square"></i>
+                            Select All
+                        </button>
+                        <button class="btn btn-sm btn-warning" onclick="sendBulkEmail()">
+                            <i class="fas fa-envelope"></i>
+                            Send Email
+                        </button>
+                        <button class="btn btn-sm btn-danger" onclick="bulkArchive()">
+                            <i class="fas fa-archive"></i>
+                            Archive Selected
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <div class="footer-logo">
+                        <img src="images/logo-white.png" alt="NU Technocrats">
+                        <h3>NU Technocrats Club</h3>
+                    </div>
+                    <p>Innovate • Collaborate • Lead</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="departments.html">Departments</a></li>
+                        <li><a href="index.html#events">Events</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="people.html">People</a></li>
+                        <li><a href="utilities.html">Utilities</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section participate">
+                    <h4>Get Involved</h4>
+                    <ul>
+                        <li><a href="login.html">Join the Club</a></li>
+                        <li><a href="index.html#events">Attend Events</a></li>
+                        <li><a href="departments.html">Choose Department</a></li>
+                        <li><a href="people.html">Meet Mentors</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get the latest news about events, workshops, and opportunities.</p>
+                    <form class="newsletter-form">
+                        <div class="newsletter-input">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 NU Technocrats Club. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Code of Conduct</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/students.js"></script>
+</body>
+</html>
